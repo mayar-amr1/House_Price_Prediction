@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Design tokens — "Survey" system
+   A land-registry / valuation-certificate aesthetic: blueprint navy + brass,
+   warm paper ground, Fraunces for display type, IBM Plex Sans/Mono for
+   body copy and data.
+   ========================================================================== */
+:root {
+  /* Color */
+  --ink: #16233d;
+  --ink-soft: #4b5468;
+  --blueprint: #1e3a5f;
+  --blueprint-deep: #14213d;
+  --brass: #b8892b;
+  --brass-light: #d9af52;
+  --paper: #f3efe4;
+  --paper-raised: #fbf9f3;
+  --line: #cdc4ab;
+  --line-soft: #e4ddc9;
+  --success: #3f7355;
+  --danger: #a3402e;
+
+  /* Type */
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(var(--paper), var(--paper)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(30, 58, 95, 0.035) 0px,
+      rgba(30, 58, 95, 0.035) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(30, 58, 95, 0.035) 0px,
+      rgba(30, 58, 95, 0.035) 1px,
+      transparent 1px,
+      transparent 32px
+    );
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  color: var(--blueprint-deep);
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--brass);
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
